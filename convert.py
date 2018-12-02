@@ -20,16 +20,16 @@ def convert(size, box):
     return (x,y,w,h)
     
     
-"""-------------------------------------------------------------------""" 
+#"""-------------------------------------------------------------------""" 
 
-""" Configure Paths"""
+#""" Configure Paths"""
 ## Ordnerstruktur:
 #git: 
 #convert.py
-#Ordner "anno" (Hier sind die ursprünglichen annotations drin)
+#Ordner "Annotations" (Hier sind die ursprünglichen annotations drin)
 #Ordner "output"
 #Falls die Ordner anders heißen bei euch, die zwei Zeilen untendrunter anpassen
-mypath = "./anno/"
+mypath = "./Annotations/"
 outpath = "./output/"
 
 cls = "1"
@@ -40,43 +40,59 @@ cls_id = classes.index(cls)
 wd = getcwd()
 list_file = open('%s/%s_list.txt'%(wd, cls), 'w')
 
-""" Get input text file list """
+#""" Get input text file list """
 txt_name_list = []
 for (dirpath, dirnames, filenames) in walk(mypath):
     txt_name_list.extend(filenames)
     break
 print(txt_name_list)
 
-""" Process """
+#""" Process """
 for txt_name in txt_name_list:
     
-    """ Open input text files """
+    #""" Open input text files """
     txt_path = mypath + txt_name
     print("Input:" + txt_path)
     txt_file = open(txt_path, "r")
     lines = txt_file.read().split('\n')   #for ubuntu, use "\r\n" instead of "\n"
     
-    """ Open output text files """
+    #""" Open output text files """
     txt_outpath = outpath + txt_name
     print("Output:" + txt_outpath)
     txt_outfile = open(txt_outpath, "a")
     
-    
-    """ Convert the data to YOLO format """
+    #""" Convert the data to YOLO format """
     ct = 0
     for line in lines:
         #print('lenth of line is: ')
-        print(len(line))
+        #print(len(line))
         #print('\n')
         elems = line.split(' ')
         if(len(elems) >= 2):
+            print(line + "\n")
+            elems = line.split(' ')
+            print(elems)
             xmin = elems[0]
             xmax = elems[2]
             ymin = elems[1]
             ymax = elems[3]
             cat = elems[4]
-            print(elems)
-            shit = str(cat + " " + elems[0] + " " + elems[1] + " " + elems[2] + " " + elems[3])
-            txt_outfile.write(str(shit) + '\n')
-                
-list_file.close()  
+            #
+            img_path = str('%s/Images/%s.jpg'%(wd, os.path.splitext(txt_name)[0]))
+            #t = magic.from_file(img_path)
+            #wh= re.search('(\d+) x (\d+)', t).groups()
+            im=Image.open(img_path)
+            w= int(im.size[0])
+            h= int(im.size[1])
+            #w = int(xmax) - int(xmin)
+            #h = int(ymax) - int(ymin)
+            # print(xmin)
+            print(w, h)
+            print(float(xmin), float(xmax), float(ymin), float(ymax))
+            b = (float(xmin), float(xmax), float(ymin), float(ymax))
+            bb = convert((w,h), b)
+            print(bb)
+            txt_outfile.write(str(cat + " " + " ".join([str(a) for a in bb]) + '\n'))
+
+    #""" Save those images with bb into list"""                
+list_file.close()
