@@ -76,7 +76,7 @@ for txt_name in txt_name_list:
             xmax = elems[2]
             ymin = elems[1]
             ymax = elems[3]
-            cat = elems[4]
+            cat = "0"
             #
             img_path = str('%s/Images/%s.jpg'%(wd, os.path.splitext(txt_name)[0]))
             #t = magic.from_file(img_path)
