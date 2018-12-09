@@ -59,7 +59,7 @@ for txt_name in txt_name_list:
     #""" Open output text files """
     txt_outpath = outpath + txt_name
     print("Output:" + txt_outpath)
-    txt_outfile = open(txt_outpath, "a")
+    txt_outfile = open(txt_outpath, "w")
     
     #""" Convert the data to YOLO format """
     ct = 0
