@@ -24,7 +24,7 @@ import parse_cowc
 
 ###############################################################################
 # path variables (may need to be edited! )
-cowc_data_dir = '/Users/simonforstel/Downloads/data/ground_truth_cowc'
+cowc_data_dir = '/Users/simonforstel/Downloads/data/ground_truth_cowc/'
 simrdwn_data_dir = '/Users/simonforstel/Downloads/data/simrdwn_data/'
 train_out_dir = '/Users/simonforstel/Downloads/data/convert_output/train/'
 test_out_dir = '/Users/simonforstel/Downloads/data/convert_output/test/'
@@ -68,7 +68,7 @@ label_map_path = os.path.join(simrdwn_data_dir, label_map_file)
 ground_truth_dir = cowc_data_dir #os.path.join(args.cowc_data_dir, 'datasets/ground_truth_sets/')
 train_dirs = ['Potsdam_ISPRS', 'Selwyn_LINZ', 'Toronto_ISPRS']
 test_dirs = ['Utah_AGRC']
-annotation_suffix = '_Annotated_Cars.png'
+annotation_suffix = '_Annotated_Cars.jpg'
 ##############################
 
 ##############################
@@ -144,7 +144,7 @@ for i,d in enumerate(train_dirs):
     for annotate_file in annotate_files:
         annotate_file_tot = os.path.join(dtot, annotate_file)
         name_root = annotate_file.split(annotation_suffix)[0]
-        imfile = name_root + '.png'
+        imfile = name_root + '.jpg'
         imfile_tot = os.path.join(dtot, imfile)
         outroot = d + '_' + imfile.split('.')[0]
         print ("\nName_root", name_root)
@@ -180,7 +180,7 @@ max_plots=50
 thickness=2
 yolt_data_prep_funcs.plot_training_bboxes(labels_dir, images_dir, ignore_augment=False,
                      sample_label_vis_dir=sample_label_vis_dir, 
-                     max_plots=max_plots, thickness=thickness, ext='.png')
+                     max_plots=max_plots, thickness=thickness, ext='.jpg')
 
 
 
@@ -207,7 +207,7 @@ for td in test_dirs:
         os.makedirs(td_tot_out)
     # copy non-label files
     for f in os.listdir(td_tot_in):
-        if f.endswith('.png') and not f.endswith(('_Cars.png', '_Negatives.png', '.xcf')):
+        if f.endswith('.jpg') and not f.endswith(('_Cars.jpg', '_Negatives.jpg', '.xcf')):
             shutil.copy2(os.path.join(td_tot_in, f), td_tot_out)
     # copy everything?
     #os.system('cp -r ' + td_tot + ' ' + test_out_dir)
