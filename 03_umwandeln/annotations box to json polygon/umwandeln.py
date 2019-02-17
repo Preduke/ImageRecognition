@@ -1,7 +1,6 @@
 # Einzelne Txt Files in der Default Ordner
 # JPG Files auch in den Default Ordern, werden zum Auslesen der größe gebraucht
 # Python Skript ausfuehren
-# csv. in json umwandeln
 
 import os, sys, random
 import xml.etree.ElementTree as ET
