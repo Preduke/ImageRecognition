@@ -2,7 +2,7 @@
 
 ## 1. Train the model
 
-- Login to gcloud and navigate to mrcnn:
+Login to gcloud and navigate to mrcnn:
 ```
 cd home/unicorn/mrcnn/
 ```
