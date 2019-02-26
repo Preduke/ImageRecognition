@@ -6,7 +6,7 @@ Login to gcloud and navigate to mrcnn:
 ```
 cd home/unicorn/mrcnn/
 ```
-Delete old Files & Copy content of train and test folder from bucket storage:
+Remove old Files & Copy content of train and test folder from bucket storage:
 ```
 sudo rm -r ./samples/car/train/*
 sudo rm -r ./samples/car/test/* 
@@ -52,7 +52,7 @@ cd XXXXXXXXXXXXXX
 ```
 Clean the result folder:
 ```
-cd XXXXXXXXXXXXXX
+sudo rm -r ./result/*
 ```
 Start recognition :
 ```
