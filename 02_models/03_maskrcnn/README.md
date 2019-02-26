@@ -6,7 +6,8 @@ Login to gcloud and navigate to mrcnn:
 ```
 cd home/unicorn/mrcnn/
 ```
-Remove old Files & Copy content of train and test folder from bucket storage:
+Remove old Files & Copy content of train and test folder from bucket storage.
+Please make sure that annotation json file is also available in each of the folder. 
 ```
 sudo rm -r ./samples/car/train/*
 sudo rm -r ./samples/car/test/* 
