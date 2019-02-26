@@ -24,17 +24,19 @@ Or set current config-file to default:
 ```
 sudo XXXXXXXX
 ```
-Start the Training and relax on your bike :mountain_bicyclist:: 
+Navigate to folder, start the Training and relax on your bike :mountain_bicyclist:: 
 ```
+cd samples/car/
 sudo python3 ./car.py train --dataset=./ --weights=./mask_rcnn_coco.h5
 ```
 Get your weight-file that has been generated: 
 ```
-sudo XXXXXXXXX
+cd /home/unicorn/mrcnn/
+sudo cp /logs/[ADJUST FOLDER]/mask_rcnn_coco.h5 ./
 ```
 From time-to-time delete weight files: 
 ```
-sudo XXXXXXXXX
+sudo rm -r ./logs/* 
 ```
 
 ## 2. Test your own Data
