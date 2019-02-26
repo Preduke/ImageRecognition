@@ -32,7 +32,7 @@ sudo python3 ./car.py train --dataset=./ --weights=./mask_rcnn_coco.h5
 Get your weight-file that has been generated: 
 ```
 cd /home/unicorn/mrcnn/
-sudo cp /logs/[ADJUST FOLDER]/mask_rcnn_coco.h5 ./
+sudo cp /logs/[ADJUST FOLDER]/mask_rcnn_car_0030.h5 ./
 ```
 From time-to-time delete weight files: 
 ```
@@ -47,21 +47,23 @@ cd home/unicorn/mrcnn/
 ```
 First copy the pictures you would like to test from bucket :
 ```
-cd home/unicorn/mrcnn/
+sudo rm -r ./images/*
+sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/eval/* ./images/
 ```
 Copy the trained weights you would like to use :
 ```
-cd XXXXXXXXXXXXXX
+sudo rm mask_rcnn_car_0030.h5
+sudo cp logs/[ADJUST FOLDER]/mask_rcnn_car_0030.h5 ./
 ```
 Clean the result folder:
 ```
-sudo rm -r ./result/*
+sudo rm -r ./results/*
 ```
 Start recognition :
 ```
-cd XXXXXXXXXXXXXX
+sudo python3 TESTMODEL.py
 ```
-Generated pictures will be saved in /result folder
+Generated pictures will be saved in /results folder
 
 ## 3. Test your data and extract annotations
 
