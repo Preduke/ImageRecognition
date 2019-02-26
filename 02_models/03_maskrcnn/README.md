@@ -21,7 +21,7 @@ Or set current config-file to default:
 ```
 sudo XXXXXXXX
 ```
-Start the Training and relax: 
+Start the Training and relax on your bike :mountain_bicyclist:: 
 ```
 sudo ./samples/car/traing.py -o simple -a ./annotations.txt
 ```
