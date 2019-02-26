@@ -11,8 +11,8 @@ Please make sure that annotation json file is also available in each of the fold
 ```
 sudo rm -r ./samples/car/train/*
 sudo rm -r ./samples/car/test/* 
-sudo gsutil -m cp -r gs://unicorn-analytics-bucket/upload/train/ ./samples/car/train
-sudo gsutil -m cp -r gs://unicorn-analytics-bucket/upload/test/ ./samples/car/test
+sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/train/* ./samples/car/train/
+sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/test/* ./samples/car/train/
 ```
 
 If needed update options of config file:
