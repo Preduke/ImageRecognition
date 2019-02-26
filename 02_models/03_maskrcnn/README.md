@@ -43,7 +43,7 @@ sudo rm -r ./logs/*
 
 Navigate to Test Folder :
 ```
-cd home/unicorn/mrcnn/
+cd /home/unicorn/mrcnn/
 ```
 First copy the pictures you would like to test from bucket :
 ```
