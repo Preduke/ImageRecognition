@@ -27,3 +27,9 @@ sudo XXXXXXXX
 sudo ./samples/car/traing.py -o simple -a ./annotations.txt
 ```
 
+## 2. Test your own Data
+
+- First copy the pictures you would like to test from bucket :
+```
+cd home/unicorn/mrcnn/
+```
