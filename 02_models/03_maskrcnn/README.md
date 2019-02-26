@@ -64,6 +64,11 @@ Start recognition :
 sudo python3 TESTMODEL.py
 ```
 Generated pictures will be saved in /results folder
+Save the Folder in the Bucket
+```
+sudo gsutil rm gs://unicorn-analytics-bucket/zusammen/results/*
+sudo gsutil -m cp * gs://unicorn-analytics-bucket/zusammen/results/
+```
 
 ## 3. Test your data and extract annotations
 
