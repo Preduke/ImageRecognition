@@ -4,7 +4,7 @@
 
 Login to gcloud and navigate to mrcnn:
 ```
-cd home/unicorn/mrcnn/
+cd /home/unicorn/mrcnn/
 ```
 Remove old Files & Copy content of train and test folder from bucket storage.
 Please make sure that annotation json file is also available in each of the folder. 
@@ -26,7 +26,7 @@ sudo XXXXXXXX
 ```
 Start the Training and relax on your bike :mountain_bicyclist:: 
 ```
-sudo ./samples/car/traing.py -o simple -a ./annotations.txt
+sudo python3 ./car.py train --dataset=./ --weights=./mask_rcnn_coco.h5
 ```
 Get your weight-file that has been generated: 
 ```
