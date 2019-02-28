@@ -21,42 +21,55 @@ string = '{'
 # Wenn der Abstand zu groß bzw. klein ist kann er hier auch angepasst werden. 
 # Einfach zum Faktor k am Ende Pixel hinzufügen oder abziehen. 
 for file in annotations:
-	x = []
-	y = []
+	p = []
+	q = []
 	fobj = open(file)
+	if os.stat(file).st_size == 0:
+		continue
+
 	counter=0
 	for line in fobj:
-		# Wir entfernen das erste "
+		# Wir entfernen das erste ^
 		if counter == 0:
 			line = line[1:]
 		# Wenn das nächste Objekt kommt beenden wir die List Befüllung
-		if line[0] == '"':
+		if line[0] == '^':
 			break
-
-		x1 =  line.replace(".5", "")
-		x1 = re.findall('\d+', x1 )
 		
-		if x1[0] and x1[1]:
-			x.append(int(x1[0]))
-			y.append(int(x1[1]))
+		x2 =  line.replace(".5", "")
+		x2 = re.findall('\d+', x2 )
 
+		for firstItem in x2:
+        		o1 = firstItem
+		for lastItem in x2:
+			o2 = lastItem
+
+		if 'o1' in locals():
+			if o1 and o2:
+				p.append(int(o1))
+				q.append(int(o2))
+		
 		counter = counter +1
-		
-	xmax = max(x)
-	xmin = min(x)
-	ymax = max(y)
-	ymin = min(y)
-	k = (((xmax-xmin)*2)+((ymax-ymin)*2))/20		
+	
+	xmax = max(p)
+	xmin = min(p)
+	ymax = max(q)
+	ymin = min(q)
+	k = (((xmax-xmin)*2)+((ymax-ymin)*2))/20
+	#print(k)			
+
 
 
 for file in annotations:
-
+	
 	x = []
 	y = []
 
 	file2 = file.replace('csv', 'jpg')
 	size = os.path.getsize(file2)
 	filename = file.split('/')[-1].split('.')[0] + '.jpg'
+	if os.stat(file).st_size == 0:
+		continue
 	string = string + '"' + filename + str(size) + '":{"filename":"'+filename + '","size":' + str(size) + ',"regions":['
 	fobj = open(file)
 
@@ -64,8 +77,10 @@ for file in annotations:
 	for line in fobj:
 		if counter == 0:
 			line = line[1:]
+			#line = line +1
 		
-		if line[0] == '"':
+		if line[0] == '^':
+			#line = line +1
 			string = string + '{"shape_attributes":{"name":"polygon","all_points_x":' + str(x) + ',"all_points_y":' + str(y) +'},"region_attributes":{}},'
 			x = []
 			y = []
@@ -75,24 +90,30 @@ for file in annotations:
 
 		x1 = re.findall('\d+', x1 )
 
-		if x1[0] and x1[1]:
-			# Wenn counter 0 werden die Koordinaten einfach genommen
-			if counter == 0:
-				x.append(int(x1[0]))
-				y.append(int(x1[1]))					
-				x_old = int(x1[0])
-				y_old = int(x1[1])
-			# Wenn counter >0 dann werden erst die alten Werte mit den neuen verglichen
-			# Nur wenn der Abstand größer k ist werden die Koordinaten gespeichert
-			if counter > 0:
-				if (abs(int(x1[0]) - x_old) > k) or (abs(int(x1[1])) - y_old > k):
-					x.append(int(x1[0]))
-					y.append(int(x1[1]))
-					x_old = int(x1[0])
-					y_old = int(x1[1])
+		for firstItem in x1:
+        		z1 = firstItem
+		for lastItem in x1:
+			z2 = lastItem
 
+		if 'z1' in locals():
+			if z1 and z2:
+				# Wenn counter 0 werden die Koordinaten einfach genommen
+				if counter == 0:
+					x.append(int(z1))
+					y.append(int(z2))					
+					x_old = int(z1)
+					y_old = int(z2)
+				# Wenn counter >0 dann werden erst die alten Werte mit den neuen verglichen
+				# Nur wenn der Abstand größer k ist werden die Koordinaten gespeichert
+				if counter > 0:
+					if (abs(int(z1) - x_old) > k) or (abs(int(z2)) - y_old > k):
+						x.append(int(z1))
+						y.append(int(z2))
+						x_old = int(z1)
+						y_old = int(z2)
 
-		counter = counter +1
+		if 'z1' in locals():
+			counter = counter +1
 		
 	string = string[:-1]	
 	string = string + '],"file_attributes":{}},'
