@@ -74,19 +74,25 @@ sudo gsutil -m cp results/* gs://unicorn-analytics-bucket/zusammen/results/
 
 Navigate to Test and Extract Folder :
 ```
-cd home/unicorn/mrcnn/
+cd /home/unicorn/mrcnn/
 ```
-First copy the pictures you would like to test from bucket :
+Now copy last train weights to EXTRACT folder :
 ```
-cd home/unicorn/mrcnn/
+sudo rm ./EXTRACT/mask_rcnn_car_0030.h5
+sudo cp mask_rcnn_car_0030.h5 ./EXTRACT
+cd /home/unicorn/mrcnn/EXTRACT/
 ```
-Copy the trained weights you would like to use :
+Clear Folders and Copy pictures you would like to annotate :
 ```
-cd XXXXXXXXXXXXXX
+sudo rm -r ./images/*
+sudo rm -r ./output/*
+sudo rm -r ./results/*
+sudo gsutil -m cp gs://unicorn-analytics-bucket/paolo/bilder/* ./images/
 ```
-Clean the result folder:
+Start detection and preparation of the annotation files:
 ```
-cd XXXXXXXXXXXXXX
+python3 START.py
+HIER GIBT ES EIN PROBLEM, ES LÄUFT NICHT
 ```
 Start recognition :
 ```
