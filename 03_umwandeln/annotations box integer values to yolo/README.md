@@ -6,3 +6,4 @@
 ODER
 3. Unterordner "Images" erstellen und JPG Files einfügen. Achtung evtl. muss trotzdem Zeile 81 angepasst werden, je nach Betriebssystem ist "/" oder "\ gefordert.
 4. Python-File ausführen
+
