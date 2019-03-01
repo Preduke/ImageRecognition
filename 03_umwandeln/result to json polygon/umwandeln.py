@@ -56,7 +56,7 @@ for file in annotations:
 	ymax = max(q)
 	ymin = min(q)
 	k = (((xmax-xmin)*2)+((ymax-ymin)*2))/20
-	#print(k)			
+	k = 5			
 
 
 
@@ -89,11 +89,19 @@ for file in annotations:
 		x1 =  line.replace(".5", "")
 
 		x1 = re.findall('\d+', x1 )
-
+		#print(x1)
+		#print(x1[0:1:])
+		#print(x1[-1:])
+		#numbers = [ int(x) for x in x1 ]
 		for firstItem in x1:
-        		z1 = firstItem
+        		z1 = x1[0:1:]
+        		z1 = int(''.join(str(i) for i in z1))
+        		#print(z1)
+			
 		for lastItem in x1:
-			z2 = lastItem
+			z2 = x1[-1:]
+			z2 = int(''.join(str(i) for i in z2))
+			#print(z2)
 
 		if 'z1' in locals():
 			if z1 and z2:
