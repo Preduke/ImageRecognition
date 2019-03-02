@@ -1,4 +1,7 @@
-1. Unter /home/valeria_reifschneider/unicorn-analytics-bucket/ ist der "unicorn-analytics-bucket"-Bucket eingebunden. Anleitung zum Einbinden von Buckets: https://cloud.google.com/storage/docs/gcs-fuse
+1. Unter /home/valeria_reifschneider/unicorn-analytics-bucket/ ist der "unicorn-analytics-bucket"-Bucket eingebunden.
+Achtung kann bei Neustart verschwunden sein: Befehl zum mounten: 
+$ gcsfuse unicorn-analytics-bucket ./unicorn-analytics-bucket/
+Anleitung zum Einbinden von Buckets: https://cloud.google.com/storage/docs/gcs-fuse
 
 2. Für das Training / Testen der Modelle, kann auf bestimmten Ordner in Bucket ein Softlink erstellt werden. Man muss also nicht den Bucket-Inhalt in die VM kopieren!
 Dazu erst "ln -s " dann den Pfad zum Ordner im Bucket und danach den Zielpfad eingeben (Verlinkung zu Bucket Ordner).
