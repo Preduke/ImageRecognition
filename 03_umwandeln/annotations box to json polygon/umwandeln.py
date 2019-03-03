@@ -12,14 +12,17 @@ download_dir ="FILE.json"
 csv = open(download_dir, "w")
 annotations = glob('./*.txt')
 string = '{'
-
+i = 0
 split1 = 0
 for file in annotations:
+	i = i+1
+	print(i)
 	if split1 != 0:
 		string = string + ','
 	file2 = file.replace('txt', 'jpg')
 	size = os.path.getsize(file2)
 	filename = file.split('/')[-1].split('.')[0] + '.jpg'
+	print(filename)
 	string = string + '"' + filename + str(size) + '":{"filename":"'+filename + '","size":' + str(size) + ',"regions":['
 	fobj = open(file)
 	split2=0

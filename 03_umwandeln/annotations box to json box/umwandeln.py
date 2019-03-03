@@ -13,8 +13,11 @@ csv = open(download_dir, "w")
 annotations = glob('./*.txt')
 string = '{'
 
+i = 0
 split1 = 0
 for file in annotations:
+	i = i+1
+	print(i)
 	if split1 != 0:
 		string = string + ','
 	file2 = file.replace('txt', 'jpg')
@@ -24,7 +27,6 @@ for file in annotations:
 	fobj = open(file)
 	split2=0
 	for line in fobj:
-		
 		if split2 != 0:
 			string = string + ','
 		split2 = split2 + 1	
