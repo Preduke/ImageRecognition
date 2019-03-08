@@ -12,7 +12,7 @@ Please make sure that annotation json file is also available in each of the fold
 sudo rm -r ./samples/car/train/*
 sudo rm -r ./samples/car/test/* 
 sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/train/* ./samples/car/train/
-sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/test/* ./samples/car/test/
+sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/val/* ./samples/car/test/
 ```
 
 If needed update options of config file:
@@ -70,7 +70,18 @@ sudo gsutil rm gs://unicorn-analytics-bucket/zusammen/results/*
 sudo gsutil -m cp results/* gs://unicorn-analytics-bucket/zusammen/results/
 ```
 
-## 3. Test your data and extract annotations
+## 3. Calculate mAP
+
+Navigate to car Folder :
+```
+cd /home/unicorn/mrcnn/samples/car/
+```
+Start calculation of mAP :
+```
+sudo python3 evaluation.py
+```
+
+## 4. Test your data and extract annotations
 
 Navigate to Test and Extract Folder :
 ```
