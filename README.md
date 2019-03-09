@@ -10,7 +10,7 @@
 
 | model | options | dataset | split | mAP |
 | --- | --- | --- | --- | --- |
-| mrcnn | xx | Google 3D, Google 2D | xx | xx |
+| mrcnn | epoch 30 | Google 3D, Google 2D | xx | 0.7739 |
 | xxxx | xx | xx | xx | xx |
 | xxxx | xx | xx | xx | xx |
 | xxxx | xx | xx | xx | xx |
