@@ -1,4 +1,4 @@
-# Annotation Box mit Integer Werten (z.B. 1023 524 1131 570 1) in yolo Format (z.B. 0 0.84140625 0.7597222222222223 0.084375 0.0638888888888889) umwandeln. 
+# Annotation Box mit Integer Werten (z.B. 1023 524 1131 570 1) in Form von xmin ymin xmax ymax wie z.B. bei carpk in yolo Format (z.B. 0 0.84140625 0.7597222222222223 0.084375 0.0638888888888889) umwandeln. 
 
 1. Annotations Files (txt Files) in Unterordner "Annotations" kopieren. 
 2. Unterordner "output" erstellen, in dem Ergebnis gespeichert wird.
