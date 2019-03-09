@@ -11,7 +11,7 @@ from pprint import pprint
 import pandas as pd
 
 # json File im gleichen Ordner
-with open('via_region_data.json') as f:
+with open('1_FILE_jsonbox.json') as f:
 	data = json.load(f)
 
 # Folder fuer die Bilder, die werden gebracuht um die Filesize auszulesen
@@ -37,10 +37,10 @@ for (k,v) in data.items():
 		dict1 = i['shape_attributes']	
 		for p in dict1:
 			print(dict1)
-			x_point = float((dict1['x']))
-			y_point = float((dict1['y']))
-			width = float((dict1['width']))
-			height = float((dict1['height']))
+			x_point = float(dict1['x'])+(float(dict1['width']))/2
+			y_point = float(dict1['y'])+(float(dict1['height']))/2
+			width = float(dict1['width'])
+			height = float(dict1['height'])
 			df_class = '0'
 			df_x = float(x_point) / float(pic_width)
 			df_y = float(y_point) / float(pic_height)
