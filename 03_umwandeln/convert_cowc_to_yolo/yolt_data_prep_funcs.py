@@ -152,13 +152,13 @@ def make_label_images(root_dir, new_labels=[]):
     l = l0 + l1 + l2 + new_labels
     
     #for word in l:
-    #    os.system("convert -fill black -background white -bordercolor white -border 4 -font futura-normal -pointsize 18 label:\"%s\" \"%s.jpg\""%(word, word))
+    #    os.system("convert -fill black -background white -bordercolor white -border 4 -font futura-normal -pointsize 18 label:\"%s\" \"%s.png\""%(word, word))
     
     # change to label directory
     os.chdir(root_dir)
     for word in l:
-        #os.system("convert -fill black -background white -bordercolor white -border 4 -font Helvetica -pointsize 18 label:\"%s\" \"%s.jpg\""%(word, word))
-        run_cmd("convert -fill black -background white -bordercolor white -border 4 -font Helvetica -pointsize 18 label:\"%s\" \"%s.jpg\""%(word, word))
+        #os.system("convert -fill black -background white -bordercolor white -border 4 -font Helvetica -pointsize 18 label:\"%s\" \"%s.png\""%(word, word))
+        run_cmd("convert -fill black -background white -bordercolor white -border 4 -font Helvetica -pointsize 18 label:\"%s\" \"%s.png\""%(word, word))
         run_cmd("convert -fill black -background white -bordercolor white -border 4 -font Helvetica -pointsize 18 label:\"%s\" \"%s.png\""%(word, word))
 
     # change back to cwd
@@ -1126,7 +1126,7 @@ def rotate(origin, point, angle):
 
 ###############################################################################        
 def augment_training_data(label_folder, image_folder, hsv_range=[0.5,1.5],
-                          skip_hsv_transform=True, ext='.jpg'):
+                          skip_hsv_transform=True, ext='.png'):
     '''Rotate data to augment training sizeo 
     darknet c functions already to HSV transform, and left-right swap, so
     skip those transforms
@@ -1254,7 +1254,7 @@ def augment_training_data(label_folder, image_folder, hsv_range=[0.5,1.5],
         im_l_out.append(im_loc)
         
 #        # reflect or flip image left to right (skip since yolo.c does this?)
-#        imout_lr = image_folder + root + '_lr.jpg'
+#        imout_lr = image_folder + root + '_lr.png'
 #        labout_lr = label_folder + root + '_lr.txt'
 #        cv2.imwrite(imout_lr, image_lr)
 #        lr_out.to_csv(labout_lr, sep=' ', header=False)
@@ -1277,15 +1277,15 @@ def augment_training_data(label_folder, image_folder, hsv_range=[0.5,1.5],
         
 #        # lrud flip, same as rot180
 #        #  skip lrud flip because yolo does this sometimes
-#        imout_lrud = image_folder + root + '_lrud.jpg'
+#        imout_lrud = image_folder + root + '_lrud.png'
 #        labout_lrud = label_folder + root + '_lrud.txt'
 #        cv2.imwrite(imout_lrud, image_lrud)
 #        lrud_out.to_csv(labout_lrud, sep=' ', header=False)
 #        #im_l_out.append(imout_lrud)
 
         # same as _lrud
-        #im180 = image_folder + root + '_rot180.jpg'
-        #cv2.imwrite(image_folder + root + '_rot180.jpg', image_rot180)
+        #im180 = image_folder + root + '_rot180.png'
+        #cv2.imwrite(image_folder + root + '_rot180.png', image_rot180)
         #rot_out180.to_csv(label_folder + root + '_rot180.txt', sep=' ', header=False)
         #im_l_out.append(im180)
 
@@ -1335,14 +1335,14 @@ def rm_augment_training_data(label_folder, image_folder, tmp_dir):
             ## get image
             #print "image loc:", label_file
             #root = label_file.split('.')[0]
-            #im_loc = image_folder + root + '.jpg'
+            #im_loc = image_folder + root + '.png'
             # mv files to tmp_dir
             #shutil.move(im_loc, tmp_dir)
 
     # mv augmented images
     for image_file in os.listdir(image_folder):
         
-        if (image_file.endswith(('_lr.jpg', '_ud.jpg', '_lrud.jpg','_rot90.jpg','_rot180.jpg','_rot270.jpg'))):
+        if (image_file.endswith(('_lr.png', '_ud.png', '_lrud.png','_rot90.png','_rot180.png','_rot270.png'))):
                 
             try: os.mkdir(tmp_dir)
             except: print ("")                  
@@ -1384,7 +1384,7 @@ def convertTo8Bit(rasterImageName, outputRaster,
     cmd.append(rasterImageName)
 
     #if outputFormat == 'JPEG':
-    #    outputRaster = xmlFileName.replace('.xml', '.jpg')
+    #    outputRaster = xmlFileName.replace('.xml', '.png')
     #else:
     #    outputRaster = xmlFileName.replace('.xml', '.tif')
     #

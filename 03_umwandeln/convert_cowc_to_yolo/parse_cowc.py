@@ -156,7 +156,7 @@ def cowc_to_gdf(label_image_path, image_path,
 
 ###############################################################################
 def get_gdf_tot_cowc(truth_dir, image_dir='',
-                     annotation_suffix='_Annotated_Cars.jpg',
+                     annotation_suffix='_Annotated_Cars.png',
                      category='car', yolt_box_size=10, outfile_df='',
                      verbose=False):
     '''
@@ -168,7 +168,7 @@ def get_gdf_tot_cowc(truth_dir, image_dir='',
     gt_files = [f for f in os.listdir(truth_dir) if f.endswith(annotation_suffix)]    
     for i,gt_file in enumerate(gt_files):   
         basename_annotated = os.path.basename(gt_file)
-        basename = basename_annotated.split(annotation_suffix)[0] + '.jpg'
+        basename = basename_annotated.split(annotation_suffix)[0] + '.png'
         label_image_path = os.path.join(truth_dir, basename_annotated)
         
         # if image_dir is provided
@@ -318,7 +318,7 @@ def slice_im_cowc(input_im, input_mask, outname_root, outdir_im, outdir_label,
             outname_part = 'slice_' + outname_root + \
             '_' + str(y0) + '_' + str(x0) + '_' + str(win_h) + '_' + str(win_w) +\
             '_' + str(pad)
-            outname_im = os.path.join(outdir_im, outname_part + '.jpg')
+            outname_im = os.path.join(outdir_im, outname_part + '.png')
             txt_outpath = os.path.join(outdir_label, outname_part + '.txt')
             
             # save yolt ims
@@ -389,7 +389,7 @@ def main():
                         help="Location of  images, look in truth dir if == ''")
     parser.add_argument('--out_dir', type=str, default='',
                         help="Location of output df, if '', use truth_dir")
-    parser.add_argument('--annotation_suffix', type=str, default='_Annotated_Cars.jpg',
+    parser.add_argument('--annotation_suffix', type=str, default='_Annotated_Cars.png',
                         help="Suffix of annoation files")
     parser.add_argument('--category', type=str, default='car',
                         help="default category")
@@ -414,7 +414,7 @@ def main():
                      
     # create image list
     yolt_im_list_loc = os.path.join(args.out_dir, 'cowc_training_list.txt')
-    im_ext = '.jpg'
+    im_ext = '.png'
     print ("\nsave image list to:", yolt_im_list_loc)
     with open(yolt_im_list_loc, 'w') as file_handler:
         for item in os.listdir(args.image_dir):
