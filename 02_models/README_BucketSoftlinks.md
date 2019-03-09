@@ -11,3 +11,6 @@ Z. B. $sudo ln -s /home/valeria_reifschneider/unicorn-analytics-bucket/yolo/ ./o
 3. Danach Modell starten.
 Z. B. Yolo im Ordner /home/valeria_reifschneider/darknet mit dem Befehl 
 $./darknet detector test data/obj.data yolo-obj.cfg ./yolo-obj_4000_old.weights
+
+
+./darknet detector train data/obj.data yolo-obj.cfg ./backup/yolo-obj_last.weights -gpus 0,1,2,3
