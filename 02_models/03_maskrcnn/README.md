@@ -26,7 +26,7 @@ sudo XXXXXXXX
 ```
 Navigate to folder, start the Training and relax on your bike :mountain_bicyclist:: 
 ```
-cd samples/car/
+cd /home/unicorn/mrcnn/samples/car/
 sudo python3 ./car.py train --dataset=./ --weights=./mask_rcnn_coco.h5
 ```
 Get your weight-file that has been generated: 
