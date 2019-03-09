@@ -1,6 +1,5 @@
-# Annotation json Polygon von png to jpg umwandeln.
+# Daten splitten
 
-1. Bilder im alten Format (zB png) in den Folder kopieren.
-2. Bilder im jpg Format in den Folder kopieren. 
-3. JSON Files des alten Formats in den Folder kopierne. 
-4. Python-File ausführen. 
+1. Bilder und Txt Files in Ordner kopieren.
+2. In Split_erstellen.py ggf. den Train-Anteil anpassen (aktuell 0.2).
+3. split_erstellen.py ausführen.
