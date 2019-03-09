@@ -23,7 +23,7 @@ print('Train Count:', traincount)
 print('Test Count:', testcount)
 
 #Erst Testdaten
-image_ids = np.random.choice(bilder, testcount)
+image_ids = np.random.choice(bilder, testcount , replace=False)
 for image_id in image_ids:
 	# erst die bilder kopieren
 	path_old = image_id
