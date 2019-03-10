@@ -8,7 +8,7 @@
 
 ## Results
 
-| # | model | options | dataset | split | qty of pics |time to train | weight file | mAP |
+| # | model | options | dataset | split | # of pics |time to train | weight file | mAP |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 01 | mrcnn | epoch 30 | Google 3D, Google 2D | 80/20 | 202 | xx | link | 0.7739 |
 | 02 | mrcnn | epoch 30 | CARPK | 80/20 | 1.448 | 2h 21m | link | 0.8446 | 
