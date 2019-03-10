@@ -14,6 +14,8 @@ sudo rm -r ./samples/car/val/*
 sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/train/* ./samples/car/train/
 sudo gsutil -m cp gs://unicorn-analytics-bucket/zusammen/test/* ./samples/car/val/
 ```
+Aktuelle Datensätze:
+
 
 If needed update options of config file:
 ```
