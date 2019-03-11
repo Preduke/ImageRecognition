@@ -14,7 +14,7 @@
 | 02 | mrcnn | epoch 30, layer = head  | CARPK | 80/20 | 1.448 | 2h 21m | link | 0.8446 | 
 | 03 | mrcnn | epoch 30, layer = head  | PUCPR+ | 80/20 | 125 | xx | link | 0.3353 |
 | 04 | mrcnn | epoch 30, layer = head  | COWC | 80/20 | 1.683 | 53 min | link | 0.7831 |
-| 05 | mrcnn | epoch 30, layer = head  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | xx |
+| 05 | mrcnn | epoch 30, layer = head  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | 0.7729 |
 | 06 | mrcnn | epoch 200, layer = head  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | xx |
 | 07 | mrcnn | epoch 30, layer = all  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | 0.7831 |
 | 08 | mrcnn | epoch 30, layer = 3+  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | 0.8278 |
