@@ -16,5 +16,5 @@
 | 04 | mrcnn | epoch 30, layer = head  | COWC | 80/20 | 1.683 | 53 min | link | 0.7831 |
 | 05 | mrcnn | epoch 30, layer = head  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | xx |
 | 06 | mrcnn | epoch 200, layer = head  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | xx |
-| 07 | mrcnn | epoch 30, layer = all  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | xx |
+| 07 | mrcnn | epoch 30, layer = all  | Google, CARPK, COWC | 80/20 | 3.333 | xx | link | 0.7831 |
 | 08 | xxxx | xx | xx | xx | xx | xx | link | xx |
