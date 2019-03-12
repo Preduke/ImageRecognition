@@ -13,3 +13,6 @@ Check available space in vm
 ```
 sudo df -h 
 ```
+cd /home/unicorn/frcnn/keras/
+in keras-
+sudo python train_frcnn.py -o simple -p output_FILE.txt
